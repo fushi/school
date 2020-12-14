@@ -1,0 +1,239 @@
+================
+20110405 - Intro
+================
+
+First 6 pages of packed are the wrapper functions ("Sigaction() -> sigaction()")
+
+Probably will have to put server in background, and run client in foreground
+
+Internet standard is big endian, but Intel is little endian
+
+Host is the other side of the connection
+
+3 Types of addresses: Raw, Octet (192.168.1.1), Domain (www.google.com)
+
+You are not garunteed in tcp that you will read/write all the packets in one read/write operation
+
+Advanced Programming in the Unix Envioronment by Rago/Stevens
+
+Timeline for TTh Classes
+
+Week 1-5: New Material
+Week 6: Tue - Review, Thu - Exam
+Week 7-10: New Material
+Week 11: Tue - Review, Thu - Exam
+
+
+==================
+20110407 - Signals
+==================
+
+Missed Class:
+
+sigaction/sigprocessmask class
+
+When you enter a handler, the signal that got you there is automatically blocked
+
+sig fill set
+
+###########
+sigaction() //Two forms, one is information please!
+sigprocmask()
+sigpending()
+sigismember()
+
+sigsetjump()
+siglongjump()
+
+sigemptyset()
+sigfillset()
+sigaddset()
+###########
+
+sigemptyset(&mask);
+sigaddset(&mask, SIGINT)
+sigaddset(&mask, SIGQUIT)
+sidaddset(&mask, SIGALARM)
+
+==================
+20110412 - Signals
+==================
+
+sigprocessmask( ) #sigblock, sigunblock
+
+blocks are additive. If you block 2, then block a different 2, all 4 are blocked.
+
+To remove all prior masks, and get only what you set now.
+
+sigprocessmask(SIG_SETMASK, &mask, NULL);
+
+############
+getpid()
+getppid()
+
+atexit() ## registers a function that gets run when the program exits, but only from exit() or end of main
+############
+
+#dealing with SIGCHLD
+
+    SIGCHLD occurs when the child exits, and the parent gets notified
+
+    Parent might want to know how child exited. Exit status is kept in the System Process Table.
+
+    System Process Table has pid, and the exit status for that process. 
+
+    Processes that exit, but are still on the table are Zombie Processes
+
+    /usr/include/limits.h has a list of limits.
+
+    waitpid can also be used to wait until a child dies: waitpid(pid, &status, 0);
+
+    pid -1 is any child, and WNOHANG makes waitpid non-blocking
+
+==============
+20110414 - I/O
+==============
+
+Second group of 5, mark 2, after writing to temp file, exit.
+
+tempnam() is ansi c function
+
+
+open(): First arg is the filename, second is mode, third is the permissions
+
+remember umask()!
+setuid: when executing, execute as owner of executable
+setguid: when executing, execute as if your group is that of the owner of the executable.
+saved-text-bit (sticky bit): If set, keeps program in memory as a daemon
+
+write(): file descriptor, void *, # bytes to write
+
+stat is for closed files, fstat for open files
+
+can you use xor instead of &~ for removing a bit?
+
+
+read/write on terminals are line buffered, unlike files and sockets
+
+read is a blocking system call
+
+read does not clean out buffers. memset(buf, 0, BUFSIZE), or bzero
+
+==============
+20110419 - I/O
+==============
+Absent
+
+Client: socket, then connect, writes/reads after that
+Server: socket (passive), bind, listen, while(1), accept, fork, close active socket.
+
+close is re-entrant
+
+==============
+20110421 - I/O
+==============
+
+Page 9
+
+set_up_signals
+
+inet_ntop   inet_pton can replace inet_addr
+
+SIGTTIN
+SIGTTOU
+
+setsockopt
+
+SO_LINGER
+
+==============
+20110426 - 
+==============
+
+In lab 2, on the server side, a program called 'who'
+
+sending n packets, not necessarily 1. How do you deal with multi packet responses?
+
+File *who;
+
+who = popen("who", "r");
+
+Pclose(who);
+
+Pclose uses a fork/exec
+
+Will learn advisory locking
+
+==============
+20110428 - File Locking
+==============
+
+Advisory locking like perl
+
+Madatory locking via setgid bit
+
+If you open a file before a fork, always get a write lock, otherwise pointers can move!
+
+==============
+20110503 - Host Entry Structures and Select Based TCP Server
+==============
+
+Flow control issues: 461/463. Make the passive socket a non-blocking descriptor via fctrl
+
+Book ignores sigpipe
+
+
+In the for loops that services sockets
+reqtimes[readsock].requesttimes = time(null);
+
+In loop above readn
+
+=======================
+
+Section on Record Locking
+    Basic Truth: Fill up a flock struct with a read lock for a given reigon of bytes
+
+    fctrl with fgetlock will tell you what kind of lock there was there.
+
+    lstat, fstat, fctrl
+
+One question on sigaction/sigprocmask/sigpending
+    information pls versions! (Use SIG_NOP for sigprocmask()!)
+
+hostent struct
+    inet_addr
+    inet_ntoa
+    inet_aton
+
+
+==============
+20110517
+==============
+
+UDP is not for bulk data data transfer, but *is* for one shot small xfers
+
+Exec Family
+-----------
+
+
+========
+20110531
+========
+
+siglongjmp in super server: block SIGCHLD
+
+
+======
+Final
+======
+
+
+3 Coding Questions
+
+writev/readv (30 pts) Handout 73-75
+UDP (30 pts) Handout 66-72
+exec family (40 pts) Handout 53-65
+
+6-830
+
+Final Meeting Tue June 21 @ 6:15

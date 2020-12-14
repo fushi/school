@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Employees>
+	<employee>
+		<emp_id>8</emp_id>
+		<emp_firstname>Conan</emp_firstname>
+		<emp_lastname>Barbarian</emp_lastname>
+		<emp_salary>3214.50</emp_salary>
+		<emp_hiredate>2003-12-14</emp_hiredate>
+		<emp_deptid>B33</emp_deptid>
+  	</employee>
+	<employee>
+		<emp_id>9</emp_id>
+		<emp_firstname>Snow</emp_firstname>
+		<emp_lastname>White</emp_lastname>
+		<emp_salary>1227.54</emp_salary>
+		<emp_hiredate>2001-11-11</emp_hiredate>
+		<emp_deptid>G4</emp_deptid>
+  	</employee>
+</Employees>

@@ -1,0 +1,7 @@
+Iron Clad Laws of Arrays:
+a =  &a[0]
+*a = a[0];
+
+Derived:
+a[i] = *(a+i);
+

@@ -1,0 +1,5 @@
+# Note: This is the voyager MySQL server, and is tunneled to via SSH.
+url=jdbc:mysql://localhost/test
+driver=com.mysql.jdbc.Driver
+login=cis53
+password=distjava

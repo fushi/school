@@ -1,0 +1,278 @@
+//
+//  lab-2.a.cpp
+//  CIS 015C
+//
+//  Created by John Towler on 4/12/11.
+//  Copyright 2011. All rights reserved.
+//
+
+#include <iostream>
+using namespace std;
+#include "FHsparseMat.h"
+
+#define MAT_SIZE 100000
+typedef SparseMat<float> SpMat;
+
+
+int main()
+{
+
+    SpMat mat(MAT_SIZE, MAT_SIZE, 0); // 100000 x 100000 filled with 0
+
+    // test mutators
+    mat.set(2, 5, 10);
+    mat.set(2, 5, 35);   // should overwrite the 10
+    mat.set(3, 9, 21);
+    mat.set(MAT_SIZE, 1, 5);  // should fail silently
+    mat.set(9, 9, mat.get(3, 9));  // should copy the 21 here
+    mat.set(4,4, -9);
+    mat.set(4,4, 0);   // should remove the -9 node entirely
+    mat.set(MAT_SIZE-1, MAT_SIZE-1, 99);
+
+    // test accessors and exceptions
+    try
+    {
+        cout << mat.get(7, 8) << endl;
+        cout << mat.get(2, 5) << endl;
+        cout << mat.get(9, 9) << endl;
+        cout << mat.get(-4, 7) << endl;  // should throw an exception
+    }
+
+    catch (...)
+    {
+        cout << "oops" << endl;
+    }
+
+    // show top left 15x15
+    mat.showSubSquare(0, 15);
+    printf("\n\n\n\n\n\n\n\n\n\n");
+    // show bottom right 15x15
+    mat.showSubSquare(MAT_SIZE - 15, 15);
+}
+
+//
+//  FHsparseMat.h
+//  CIS 015C
+//
+//  Created by John Towler on 4/12/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#include "FHlist.h"
+#include "FHvector.h"
+#include <stdio.h>
+
+template<class Object>
+class MatNode{
+private:    
+    int col;
+
+public:
+    Object data;
+    // We need a default constructor for lists
+    MatNode(int cl = 0, Object dt = Object());
+    int getCol() const;
+    const Object & operator=(const Object &x);
+};
+
+template<class Object>
+MatNode<Object>::MatNode(int cl, Object dt) : col(cl), data(dt){
+
+}
+
+template<class Object>
+    int MatNode<Object>::getCol() const{
+    return col;
+}
+
+template<class Object>
+    const Object & MatNode<Object>::operator=(const Object &x){
+    return (data = x);
+}
+
+
+template<class Object>
+class SparseMat{
+
+    typedef FHlist<MatNode<Object> > MatRow;
+    typedef FHvector<MatRow> MasterCol;
+
+private:
+    MasterCol rows;
+    const Object default_val;
+    int row_size, col_size;
+public:
+    SparseMat(int r, int c, const Object & default_v);
+    const Object & get(int r, int c);
+    bool set(int r, int c, const Object &x);
+    void clear();
+    void showSubSquare(int start, int size);
+
+    // Exception classes
+    class OutOfBoundsException { };
+};
+
+template<class Object>
+SparseMat<Object>::SparseMat(int r, int c, const Object & default_v):
+    default_val(default_v), row_size(r), col_size(c){
+
+    //Create a FHvector that has row_size FHlists in it
+    for (int i = 0; i < row_size; i++) {
+        MatRow temp;
+        rows.push_back(temp);
+    }
+}
+
+template<class Object>
+const Object& SparseMat<Object>::get(int r, int c){
+
+    if(r >= row_size || c >= col_size || r < 0 || c < 0)
+        throw OutOfBoundsException();
+
+
+    typename MatRow::iterator iter; 
+
+    for(iter = rows[r].begin(); iter != rows[r].end(); ++iter){
+        if ((*iter).getCol() == c)
+            return (*iter).data;
+    }
+    return default_val;
+}
+
+template<class Object>
+bool SparseMat<Object>::set(int r, int c, Object const &x){
+
+    typename MatRow::iterator iter;
+
+    if(r >= row_size || c >= col_size || r < 0 || c < 0)
+        return false;
+
+    // Empty the column, if it exists
+    for(iter = rows[r].begin(); (iter != rows[r].end()) && ((*iter).getCol() <= c); ++iter){
+        if ((*iter).getCol() == c){
+            rows[r].erase(iter);
+        }
+    }
+
+    // Add the value to the FHlist, if it isn't equal to the default value
+    if(x != default_val){
+        for(iter = rows[r].begin(); (iter != rows[r].end()) && ((*iter).getCol() <= c); ++iter);
+        MatNode<Object> *temp = new MatNode<Object>(c, x);
+
+        rows[r].insert(iter, *temp);
+    }
+    return true;
+}
+
+template<class Object>
+void SparseMat<Object>::clear(){
+
+    typename MasterCol::iterator iter;
+
+    for(iter = rows.begin(); iter != rows.end(); ++iter){
+        (*iter).clear();
+    }
+}
+
+template<class Object>
+void SparseMat<Object>::showSubSquare(int start, int size){
+
+    if(start < 0 || size < 0 || start > row_size || start + size > row_size)
+        throw OutOfBoundsException();
+
+    for(int i = start; (i-start) < size; i++){
+        for(int j = start; (j-start) < size; j++){
+            printf("%2.0f ", get(i, j));
+        }
+        printf("\n\n");
+    }
+}
+
+//
+//Results:
+//
+
+GNU gdb 6.3.50-20050815 (Apple version gdb-1518) (Sat Feb 12 02:52:12 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys003
+sharedlibrary apply-load-rules all
+[Switching to process 75728 thread 0x0]
+0
+35
+21
+oops
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0 35  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0 21  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0 21  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+
+
+
+
+
+
+
+
+
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0 99 
+
+Program ended with exit code: 0

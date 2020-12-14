@@ -1,0 +1,18 @@
+John Towler
+CIS 033B
+Winter 2011
+
+LAB 1.1
+=======
+
+Aether:CIS 033B fushi$ ./lab-1.1.pl lab-1.1.in lab-1.1.out
+Aether:CIS 033B fushi$
+
+
+
+LAB 1.2
+=======
+
+Aether:CIS 033B fushi$ ./lab-1.2.pl
+Median = 61
+Aether:CIS 033B fushi$

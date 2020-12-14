@@ -1,0 +1,77 @@
+Most basic part of coding is choosing data structures
+
+Lists should be used for homogeneous data, hashes for heterogeneous.
+
+Building a 3d data structure
+
+
+Oregon:Coos Bay: 76 74 82 83
+
+while (<TEMPS>){
+	chomp;
+	($state, $city, $temps) = split /:/;
+	@temps = split /\s+/, $temps;
+	$temps{$state}{$city} = [@temps];
+}
+
+foreach $state (sort keys %temps){
+
+	print OUT "$state\n", "-" x length($state), "\n";
+	
+	foreach $city (sort keys %{$temps{$state}}){
+		printf OUT "%-30s", "%3d " x 7, "\n", $city, @{$temps{$city}{$temps}};
+	}
+
+}
+
+
+Building a 4d data structure
+
+
+Oregon:Coos Bay: 76 74 82 83
+
+while (<TEMPS>){
+	chomp;
+	($state, $city, $temps) = split /:/;
+	@temps = split /\s+/, $temps;
+	push(@{$temps{$state}{$city}}, [splice(@temps, 0, 2)] while @temps;
+}
+
+
+IN CLASS EXERCISE
+
+Write a sub
+
+
+
+sub keepMatricesIfGreaterThanNElements{
+
+	my($rlolol, $n) = @_;
+	
+	foreach $rlol (@{$rololol}){
+		$count = 0;
+		
+		foreach @list (@{$rlol}){
+			$count += size(@list);
+		}
+	 	if $count > $n;
+	}
+}
+
+
+
+sub keepMatricesIfGreaterThanNElements{
+
+	my($rlolol, $n) = @_;
+	
+	@$rlolol = grep{ my(@L) = map{@$_}@$_; @L > $n} @$rlolol;
+	
+	// grep{scalar(map{@$_} @$_) > $n};
+}
+
+END EXERCISE
+
+
+Learning idioms is important.
+
+

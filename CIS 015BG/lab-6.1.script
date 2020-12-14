@@ -1,0 +1,55 @@
+GNU gdb 6.3.50-20050815 (Apple version gdb-1518) (Sat Feb 12 02:52:12 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys000
+[Switching to process 20585 thread 0x0]
+
+Enter State Abbreviation: CA
+
+Name                 Social          Age   City                 State               
+Wilson, Brian        100-20-3000     25    San Francisco        CA                  
+Marley, Bob          121-56-7890     30    San Jose             CA                  
+
+Enter State Abbreviation: IL
+
+Name                 Social          Age   City                 State               
+Obama, Barrack       343-45-9876     40    Chicago              IL                  
+
+Enter State Abbreviation: NC
+
+Name                 Social          Age   City                 State               
+Jones, Ed            123-45-6789     28    Willow Hill          NC                  
+
+Enter State Abbreviation: NV
+
+Name                 Social          Age   City                 State               
+Brady, Peter         457-35-2085     99    Podunk               NV                  
+
+Enter State Abbreviation: OR
+
+Name                 Social          Age   City                 State               
+
+Enter State Abbreviation: qUiT
+Program ended with exit code: 0
+
+
+lab-6.1.in
+==========
+Jones, Ed:123-45-6789:28:Willow Hill:NC
+Marley, Bob:121-56-7890:30:San Jose:CA
+Wilson, Brian:100-20-3000:25:San Francisco:CA
+Obama, Barrack:343-45-9876:40:Chicago:IL
+Doe, John:987-65-4321:35:Anytown:KS
+Brady, Peter:457-35-2085:99:Podunk:NV
+
+lab-6.1.out
+===========
+Wilson, Brian:100-20-3000:25:San Francisco:CA
+Marley, Bob:121-56-7890:30:San Jose:CA
+Obama, Barrack:34-345-9876:40:Chicago:IL
+Doe, John:98-765-4321:35:Anytown:KS
+Jones, Ed:123-45-6789:28:Willow Hill:NC
+Brady, Peter:45-735-2085:99:Podunk:NV

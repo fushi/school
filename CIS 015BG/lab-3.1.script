@@ -1,0 +1,45 @@
+[Session started at 2011-01-26 22:35:52 -0800.]
+GNU gdb 6.3.50-20050815 (Apple version gdb-1510) (Wed Sep 22 02:45:02 UTC 2010)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys003
+Loading program into debugger…
+Program loaded.
+run
+[Switching to process 19512]
+Running…
+Enter input filename: lab-3.1.in
+Enter output filename: lab-3.1.out
+Enter a character: X
+1: No magic characters here!
+2: Only one X in this line.
+4: Hi, my name is John!
+7: This is total nonsense.
+Debugger stopped.
+Program exited with status value:0.
+
+
+
+lab-3.1.in
+==========
+No magic characters here!
+Only one X in this line.
+Lots of X and X and X in this line.
+Hi, my name is John!
+This program is X rated and Xceptional.
+This is an algebraic formula: X = Y + Z + X
+This is total nonsense.
+
+
+lab-3.1.out
+===========
+No magic characters here!
+Only one X in this line.
+X and X
+Hi, my name is John!
+X rated and X
+X = Y + Z + X
+This is total nonsense.

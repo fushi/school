@@ -1,0 +1,101 @@
+Tlab-6.1
+v3
+r1
+cCheck dependencies
+cCompileC "build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o" "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o" "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+cLd "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1" normal x86_64
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004D66164C00000000000000EE
+t1298536012
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/ctype.h
+c000000004BBD2CE90000000000002C18
+t1270689001
+s11288
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004BBD2CE90000000000004174
+t1270689001
+s16756
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdlib.h
+c000000004BBD2CE90000000000002DF5
+t1270689001
+s11765
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/string.h
+c000000004BBD2CE90000000000001731
+t1270689001
+s5937
+
+N/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o
+t2
+s0
+
+N/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1.LinkFileList
+c000000004D7959810000000000000118
+t1299798401
+s280
+
+N/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1.o
+t2
+s0
+
+N/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/cis015bg.h
+c000000004D79245300000000000003E5
+t1299784787
+s997
+i<stdio.h>
+
+N/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1
+t1299786330
+s15680
+
+N/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1.c
+c000000004D79590D0000000000000C70
+t1299798285
+s3184
+i<stdlib.h>
+i<stdio.h>
+i<string.h>
+i<ctype.h>
+i"cis015bg.h"
+
+CBuild AST from "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1.c"
+r0
+
+CCheck dependencies
+r0
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesa52de6019129b341^11e0ec019129b341^---0#1#0#--18"Check dependencies
+
+CCompileC "build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o" "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s321491201.933577
+e321491202.143129
+r1
+xCompileC
+xbuild/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o
+x/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Compile /Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1.c9f3def019129b341^66a224029129b341^---0#0#0#-19%DVTDocumentLocation2@80"file://localhost/Users/fushi/Dropbox/Workspace%20-%20Xcode/CIS%20015BG/lab-6.1.c0000000000000000^1747"CompileC "build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o" lab-6.1.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wshorten-64-to-32 -DDEBUG -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/lab-6.1-generated-files.hmap" "-I/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/lab-6.1-own-target-headers.hmap" "-I/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/lab-6.1-all-target-headers.hmap" -iquote "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/lab-6.1-project-headers.hmap" "-I/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/include" "-I/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/DerivedSources/x86_64" "-I/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/DerivedSources" "-F/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG" -c "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1.c" -o "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o"
+
+CCompileC "build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1.o" "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1.c" normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CLd "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1" normal x86_64
+s321491202.143445
+e321491202.665824
+r0
+xLd
+x/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1
+xnormal
+xx86_64
+old: duplicate symbol _Malloc in /Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o and /Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o for architecture x86_64
+oclang: error: linker command failed with exit code 1 (use -v to see invocation)
+lSLF03#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Link /Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.113d424029129b341^db6eaa029129b341^-477"ld: duplicate symbol _Malloc in /Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o and /Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o for architecture x86_64clang: error: linker command failed with exit code 1 (use -v to see invocation)Command /Developer/usr/bin/clang failed with exit code 12(21%IDEActivityLogMessage2@335"Duplicate symbol _Malloc in /Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o and /Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1-55D8D04065814779.o for architecture x86_64-321491202#0#340#-0#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#31"Apple Mach-O Linker (ld) Notice--2@56"Command /Developer/usr/bin/clang failed with exit code 1-321491202#18446744073709551615#0#-2#--30"Apple Mach-O Linker (ld) Error--0#0#0#--547"Ld lab-6.1 normal x86_64    cd "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/clang -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk "-L/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG" "-F/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG" -filelist "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/build/CIS 015BG.build/Debug/lab-6.1.build/Objects-normal/x86_64/lab-6.1.LinkFileList" -mmacosx-version-min=10.6 -o "/Users/fushi/Dropbox/Workspace - Xcode/CIS 015BG/lab-6.1"
+

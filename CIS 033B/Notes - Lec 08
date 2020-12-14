@@ -1,0 +1,11 @@
+DB_File is superior to any of the DBM formats/modules in the core perl distro
+
+Ties hashes or lists to disk.
+
+Assignment to a hash or a list immediately writes to disk, access of an element
+immediately reads from disk
+
+tie opens the file, untie closes the file
+
+
+$DB_BTREE autosorts keys in the file

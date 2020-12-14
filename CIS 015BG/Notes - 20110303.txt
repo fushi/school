@@ -1,0 +1,71 @@
+//Singly Linked!
+void moveChain(struct foo *list1, struct foo *list2, struct foo *p1, struct foo *p2, struct foo *p3){
+
+	struct foo *first, *last, *p4;
+
+	first = p1->next;
+	p4 = p3->next;
+
+	for(last = p1; last->next != p2; last = last->next);
+	
+	p1->next = p2;
+	
+	last->next = p4;
+	
+	p3->next = first;	
+}
+
+//Doubly Linked!
+void moveChain(struct foo *list1, struct foo *list2, struct foo *p1, struct foo *p2, struct foo *p3){
+
+	struct foo *mover, *first, *last, *p4;
+
+	first = p1->next;
+	p4 = p3->next;
+
+	for(mover = p1; mover->next != p2; mover = mover->next);
+	
+	last = mover;
+	
+	p1->next = p2;
+	p2->prev = p1;
+	
+	last->next = p3->next;
+	p4>prev = last;
+	
+	p3->next = first;	
+	first->prev = p3;
+}
+
+
+
+void swapNeighbors(struct foo *list, int count){
+
+struct foo * prev, *p1, *p2, *next;
+int i;
+
+prev = list;
+p1 = prev->next;
+p2 = p1->next;
+next = p2->next;
+
+while(count--){
+
+	prev->next = p2;
+	p1->next = next;
+	p2->next = p1;
+	
+	prev = p1;
+	p1 = prev->next;
+	p2 = p1->next;
+	next = p2->next;
+		
+	if (count > 1){
+		p1 = p1->next;
+		p2 = p1->next;
+	}
+}
+
+list = first;
+
+}

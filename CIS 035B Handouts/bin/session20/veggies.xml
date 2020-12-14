@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- veggies.xml -->
+<SomeVeggies>
+  <VegType type="bean">
+    <VegType type="sollanum">
+	<Veg>tomato</Veg>
+    </VegType>
+    <Veg rank="favorite" taste="delicious">soybean</Veg>
+    <Veg>yardlong bean</Veg>
+    <Veg>lima bean</Veg>
+  </VegType>
+</SomeVeggies>

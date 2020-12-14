@@ -1,0 +1,118 @@
+20110926
+=======
+JDBC - Java Database Connectivity
+RMI - Remote Method Invocation
+Servlet
+JSP - Java Server Pages w/ HTML
+XML
+Annotations
+JAX-WS 
+EJB - Enterprise Java Beans
+JMS - Java Messaging System
+
+
+JDBC - Will be using MySQL
+
+Using GlassFish as an application server
+
+
+Using JDBC always follows these steps:
+
+1: Get Driver Object (DriverManager)
+2. Get Connection Object
+3. Get Statement Object
+4. Get Result Set
+
+
+
+For Midterm:
+executeUpdate - Does not return a result set
+executeQuery - Returns a result set
+
+
+20111003
+=======
+Documentation is important, don't tell what, tell why.
+
+If you reuse code comment "I am reusing a class given in a handout
+
+
+Java beans follow a design pattern
+
+Value Objects (VO) are a design pattern (Also known as transfer object)
+
+Lab 1 has an additional spec: Connection needs to be closed, no matter of exceptions.
+open the connection, use it, then close it.
+
+
+20111010
+======
+RMI - Remote Method Invocation
+
+Directory short names in window: dir /X
+
+Purpose of an RMI interface is that every method that is defined in the RMI interface
+is meant to be accessed by a client.
+
+UnicastRemoteClient is going to me on the midterm
+
+Extends vs implements: From an OOP viewpoint, these are the same (They establish an
+"is-a" relationship).
+
+Implements means a covenant to implement the abstract methods from the implemented
+interface.
+
+Default port for RMI registry naming service is 1099
+MySQL port is 3306
+
+Registry works kind of like a properties object: User gives a key, and a value is returned.
+
+The RMI server will bind itself to the registry (The value for the key is the RMIServer Object)
+
+The key, by convention is in a url format
+
+RMI involves no networking code
+
+
+To start the registry service: rmiregistry
+
+Tasks as a server developer:
+Write server code
+Compile server code
+Invoke rmicomplier: rmic (usage: rmic packageName.yourClass.class)
+rmic generates yourClass_stub.class
+
+In order for RMI to be able to return an object, that object type needs to implement
+serializable
+
+20111024
+=======
+Servlets-
+
+	Replaces CGI
+	
+	At the high level: You write a class, compile it.
+	
+	Webservers have "Servlet Containers". This is what understands servlets.
+	
+	Servlet containers instantiate the claass files, which puts it in memory, taking out I/O.
+	
+	Interfaces for servlets: Servlet, ServletConfig, HttpServletRequest (Found in EE APIs)
+	Classes for servlets: GenericServlet (Abstract), HttpServlet
+	
+	You extend HttpServlet.
+	
+	You need to inherit or override the following methods:
+	
+	init() - Right after the object is instantiated, init() is invoked
+	service(HttpServletRequest req, HttpServletResponse resp) - Inherited from HttpServlet (DO NOT NEED TO OVERRIDE)
+	doGet(HttpServletRequest req, HttpServletResponse resp)
+	doPost(HttpServletRequest req, HttpServletResponse resp)
+	
+	
+	Servlet Life Cycle:
+	Instantiation
+	init()
+	
+	HTTP Tech to know:
+	GET & POST

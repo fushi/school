@@ -1,0 +1,41 @@
+1: 3 part constructor question (make a sub)
+
+2: basic perl SQL sub
+
+3/4: data structures (2-3d), and methods that manipulate then
+
+Sample questions
+================
+
+sub ClientsWithLargetsPortfolios{
+	my ($holdings) = shift;
+	my %largest;
+	
+
+	foreach $firm (keys %$holdings){
+		my ($highHoldings) = 0;
+		
+		foreach $client (keys $holdings->{$firm}){ #best to use values here
+			my $size = @{$holdings->{$firm}{$client};
+		
+			$highHoldings = $size if ($size > $highHoldings);
+		}
+		
+		#better way: $highHoldings = (sort{$b <=> $a} map{scalar @$_} values %{holdings->{$firm}})[0];
+		
+		$largest{$firm} = [grep{@{$holdings->{$firm}{$_}} == $highHoldings} keys %{$holdings->{$firm}}];
+		
+	}
+	return \%largest;
+}
+
+
+HoHoL (takes arg)
+Hash	                  Hash           List
+name of firm -> client id -> stock ticker names
+
+
+
+HoL (returns)
+Hash                   List
+name of firm -> client ids with the most holdings (1 if no tie, mult if ties)

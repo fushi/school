@@ -1,0 +1,27 @@
+MySQL 5.0 Installation:
+
+After downloading from mysql.com:
+
+1. Choose typical
+2. Skip signup
+3. Configure:
+   - developer
+   - select defaults
+   - include in path
+   - port 3306
+
+4. Root password: root123
+
+Starting:
+
+1.   mysqld --console
+
+Stopping:
+
+2. mysqladmin --user=root --password=root123 shutdown
+
+
+JDBC driver:
+
+1. Look for the jar file to mysql-conn.jar and save it in
+   folder that's easily accessible to you.

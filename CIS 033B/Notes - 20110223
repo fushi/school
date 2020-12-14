@@ -1,0 +1,19 @@
+Systems Programming
+
+$pid = fork();
+
+What happens? It creates a child process. Everything is given to both the parent and the child, and a PID is returned. Child receives 0 as PID, and the parent receives the childs actual PID.
+
+$$ is the current PID
+
+PID 0 is the parent and all children
+PID -1 is the same as 0, plus the parent of the parent
+
+If a signal is sent
+
+
+Passive Sockets - Used by the parent to listen for new client connection requests
+Active Sockets - Used by children to talk to the client
+
+
+Close socket as you can

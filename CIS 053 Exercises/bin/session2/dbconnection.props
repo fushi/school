@@ -1,0 +1,8 @@
+#url=jdbc:mysql://localhost/test
+#driver=com.mysql.jdbc.Driver
+#login=dbuser1
+#password=welcome
+url=jdbc:mysql://voyager.deanza.edu/test
+driver=com.mysql.jdbc.Driver
+login=cis53
+password=distjava

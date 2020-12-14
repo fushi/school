@@ -1,0 +1,28 @@
+Page 0 of the packet has a series of function that should be put into a
+header file, and used instead of the standard functions. They're meant to relieve
+you from a bunch of if statements.
+
+Two methods of processing arrays:
+
+Sentinels are values that aren't actual data, that signal the end of an array.
+
+Counts are used when you know exactly how many elements the array has.
+
+
+
+Pointer Arethematic works thusly: 
+
+*a++ 	//a is incremented by unit size. If a is the address of an int, it will 
+		//increment the size of an int. Portable across systems
+		
+No invariants in loops. 
+
+
+Pointers can use indices (ex ptr[1], ptr[-1]), which returns the address 
+that's off by the index. You can alternatively dereference something by doing
+ptr[0].
+
+C is a pass by VALUE language. Anything you want to change inside a function
+must be passed by ADDRESS.
+
+Promotion is NEVER dangerous, demotion most always is.

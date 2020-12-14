@@ -1,0 +1,114 @@
+
+
+
+
+
+Final
+
+
+Three questions:
+
+1: SQL
+
+2: seek/tell
+
+3: select style server (worst performance)
+
+
+=======================
+seek/tell
+
+sub that takes file name, ref to a hash, a string
+
+
+file: 100 byte records (includes newlines)
+
+hash: keys and values are record numbers
+
+
+swap contents of records whose numbers are the key/value pair if they have the
+string paramater at the same position in both records
+
+
+process the hash in increasing key order
+
+
+
+sub swap{
+
+	my ($filename, $href, $string) = @_;
+	my(@recordnums, $key, $val, $keystr, $valstr);
+	
+	open(F, "+<$filename");
+	
+	@recordnums = sort{$a <=> $b} keys %$href;
+	
+	foreach $key (@recordnums){
+	
+		$val = $href->{$key}
+		
+		seek(F, 0, $key * 100);
+		
+		$keystr = <F>;
+		
+		seek(F, 0, $val * 100);
+		
+		$valstr = <F>;
+		
+		next if index($keystr, $string) == -1;
+		
+		if (index($keystr, $string) == index ($valstr, $string)){
+		
+			seek(F, 0, $key * 100);
+		
+			print F $valstr;
+		
+			seek(F, 0, $val * 100);
+		
+			print F $keystr;
+		}
+	}
+}
+
+===============================
+
+sub that takes a ref to an array of active client sockets
+
+prior to calling your sub, you sent a packet to all clients.
+
+create and return a hash with client sockets as keys, and
+wallclock time to respond (in seconds) as the value
+
+keep looping until all client sockets have responded and are closed
+
+
+sub getTime{
+
+	my $actives = shift;
+
+	my %results, $ready;
+	
+	$time = timestamp();
+	
+	$sockset = new IO::Select();
+	
+	$sockset->add($_) foreach @$actives;
+	
+	while(@$actives){
+	
+		$ready = IO::Select->select($socket, undef, undef);
+	
+		foreach $sock (@$ready){
+			$results{$sock} = timestamp() - $time;
+			$sockset->remove($sock);
+			shift @$actives;
+		}
+	}
+	return %results;
+}
+
+
+
+
+
+

@@ -1,0 +1,320 @@
+//
+//  lab-1.a.cpp
+//  CIS 015C
+//
+//  Created by John Towler on 4/4/11.
+//  Copyright 2011. All rights reserved.
+//
+
+#include "sublist.h"
+#include <iostream>
+#include <vector>
+
+int main(){
+    const int TARGET = 150;
+    std::vector<int> data_set;
+    Sublist<int> result;
+
+    data_set.push_back(2); data_set.push_back(12); data_set.push_back(22);
+    data_set.push_back(5); data_set.push_back(15); data_set.push_back(25);
+    data_set.push_back(9); data_set.push_back(19); data_set.push_back(29);
+
+    // State the target time
+    std::cout << "Target time: " << TARGET << std::endl;
+
+    // Find and display a maximal sublist
+    knapsack(&data_set, TARGET).showSublist();
+
+    return 0; 
+}
+
+//
+//  lab-1.b.cpp
+//  CIS 015C
+//
+//  Created by John Towler on 4/8/11.
+//  Copyright 2011. All rights reserved.
+//
+
+#include "iTunes.h"
+#include "sublist.h"
+#include <iostream>
+#include <vector>
+
+int operator+(int n, const iTunesEntry & tune);
+ostream& operator<<(ostream &out, const iTunesEntry &tune);
+
+int main(){
+    const int TARGET = 3600;
+    int array_size;
+    std::vector<iTunesEntry> data_set;
+    Sublist<iTunesEntry> result;
+
+    // Read the Data
+    iTunesEntryReader tunes_input("itunes_file.txt");
+
+    if (tunes_input.readError()){
+        cout << "couldn't open " << tunes_input.getFileName() << " for input.\n";
+        exit(1);
+    }
+
+    array_size = tunes_input.getNumTunes();
+    for (int k = 0; k < array_size; k++)
+        data_set.push_back(tunes_input[k]);
+
+    // State the target time
+    std::cout << "Target time: " << TARGET << std::endl;
+
+    // Find and display a maximal sublist
+    knapsack(&data_set, TARGET).showSublist();
+
+    return 0; 
+}
+
+int operator+(int n, const iTunesEntry &tune){
+    return n + tune.GetNTime();
+}
+
+ostream& operator<<(ostream &out, const iTunesEntry &tune){
+    return out << tune.GetNTime();
+}
+
+//
+//  sublist.h
+//  CIS 015C
+//
+//  Created by John Towler on 4/4/11.
+//  Copyright 2011. All rights reserved.
+//
+
+#include <vector>
+#include <iostream>
+
+template<class T>
+class Sublist{
+public:
+    Sublist(){}
+    Sublist(const std::vector<T> *inc_list);
+    Sublist(const std::vector<T> *inc_list, std::vector<int> *inc_indices, int old_sum);
+    Sublist addItem(int index_to_add);
+    void showSublist() const;
+    int getSum() const;
+
+private:
+    const std::vector<T> *list;
+    std::vector<int> indices;
+    short sum;
+};
+
+#pragma once
+template<class T>
+Sublist<T>::Sublist(const std::vector<T> *inc_list)
+:sum(0), list(inc_list){
+}
+
+template<class T>
+Sublist<T>::Sublist(const std::vector<T> *inc_list, std::vector<int> *inc_indices, int old_sum)
+:sum(old_sum), list(inc_list), indices(*inc_indices){
+
+    sum = sum + (*list)[indices.back()];
+}
+
+template<class T>
+Sublist<T> Sublist<T>::addItem(int index_to_add){
+std::vector<int> new_indices = indices;
+
+    new_indices.push_back(index_to_add);
+
+    return Sublist(list, &new_indices, sum);
+}
+
+template<class T>
+void Sublist<T>::showSublist() const{
+    printf("The sum was: %d\n", sum);
+
+    std::vector<int>::const_iterator iter;
+
+    for (iter = indices.begin(); iter != indices.end(); iter++){        
+        printf("array[%d] = ", *iter);
+        std::cout << (*list)[*iter] << std::endl;
+    }
+}
+
+template<class T>
+int Sublist<T>::getSum() const{
+    return sum;
+}
+
+template<typename K>
+Sublist<K> knapsack(const std::vector<K> *data_set, int target){
+
+    std::vector<Sublist<K> > choices, choices_temp;
+    typename std::vector<K>::const_iterator data_iter;
+    typename std::vector<Sublist<K> >::iterator choices_iter;
+    int new_sum, current_high = 0;
+    Sublist<K> result, temp;
+
+    //Initialize choices with an empty sublist
+    choices.push_back(Sublist<K>(data_set));
+
+    for(data_iter = data_set->begin(); data_iter != data_set->end(); data_iter++){
+
+        for(choices_iter = choices.begin(); choices_iter != choices.end(); choices_iter++){
+
+            new_sum = choices_iter->getSum() + *data_iter;
+
+            if (new_sum == target){
+                //Found a perfect match. End loops!
+                result = choices_iter->addItem((int) std::distance(data_set->begin(), data_iter));
+                choices_iter = choices.end() - 1;
+                data_iter = data_set->end() - 1;
+            }
+            else if (new_sum < target){
+                //Found a match. Add it to to a temp vector.
+                temp = choices_iter->addItem((int) std::distance(data_set->begin(), data_iter));
+
+                if (new_sum > current_high) {
+                    //Found the best match thus far!
+                    current_high = new_sum;
+                    result = temp;
+                }
+                choices_temp.push_back(temp);
+            }
+        }
+        choices.insert(choices.end(), choices_temp.begin(), choices_temp.end());
+        choices_temp.clear();
+    }
+    return result;
+}
+
+//
+//Results for part A:
+//
+
+GNU gdb 6.3.50-20050815 (Apple version gdb-1518) (Sat Feb 12 02:52:12 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys001
+[Switching to process 21735 thread 0x0]
+Target time: 51
+The sum was: 51
+array[0] = 2
+array[1] = 12
+array[2] = 22
+array[4] = 15
+Program ended with exit code: 0
+
+GNU gdb 6.3.50-20050815 (Apple version gdb-1518) (Sat Feb 12 02:52:12 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys001
+[Switching to process 21760 thread 0x0]
+Target time: 108
+The sum was: 108
+array[1] = 12
+array[2] = 22
+array[3] = 5
+array[4] = 15
+array[5] = 25
+array[8] = 29
+Program ended with exit code: 0
+
+GNU gdb 6.3.50-20050815 (Apple version gdb-1518) (Sat Feb 12 02:52:12 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys001
+[Switching to process 21784 thread 0x0]
+Target time: 150
+The sum was: 138
+array[0] = 2
+array[1] = 12
+array[2] = 22
+array[3] = 5
+array[4] = 15
+array[5] = 25
+array[6] = 9
+array[7] = 19
+array[8] = 29
+Program ended with exit code: 0
+
+GNU gdb 6.3.50-20050815 (Apple version gdb-1518) (Sat Feb 12 02:52:12 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys001
+[Switching to process 21830 thread 0x0]
+Target time: 8
+The sum was: 7
+array[0] = 2
+array[3] = 5
+Program ended with exit code: 0
+
+//
+//Results for part B:
+//
+
+GNU gdb 6.3.50-20050815 (Apple version gdb-1518) (Sat Feb 12 02:52:12 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys001
+[Switching to process 21858 thread 0x0]
+Target time: 3600
+The sum was: 3600
+array[0] = 236
+array[1] = 220
+array[2] = 228
+array[4] = 230
+array[5] = 283
+array[6] = 308
+array[7] = 178
+array[8] = 175
+array[9] = 216
+array[11] = 208
+array[12] = 443
+array[13] = 230
+array[14] = 276
+array[15] = 187
+array[16] = 182
+Program ended with exit code: 0
+
+GNU gdb 6.3.50-20050815 (Apple version gdb-1518) (Sat Feb 12 02:52:12 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys001
+[Switching to process 21884 thread 0x0]
+Target time: 600
+The sum was: 600
+array[2] = 228
+array[7] = 178
+array[10] = 194
+Program ended with exit code: 0
+
+GNU gdb 6.3.50-20050815 (Apple version gdb-1518) (Sat Feb 12 02:52:12 UTC 2011)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys001
+[Switching to process 22024 thread 0x0]
+Target time: 259
+The sum was: 257
+array[18] = 257
+Program ended with exit code: 0

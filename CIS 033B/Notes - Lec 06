@@ -1,0 +1,22 @@
+Perl OOP:
+
+$oRef->method();
+
+A method can be both an accessor and a mutator
+
+	$oRef->name();       #accessor
+	$oRef->name("John"); #mutator
+
+Constructors( Default, Instance, Copy)
+	Default  - Empty
+	Instance - Certain Paramaters
+	Copy     - Clone another object
+	
+	Can be named anything
+	
+	Typical usage: $ref = String->new("foo");
+	
+Ordinary subs get an @_. The first member of @_ for objects is the thing
+directly left of the ->
+
+	ref(shift @_)

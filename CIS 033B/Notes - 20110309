@@ -1,0 +1,29 @@
++> Create new file for read/write
++< Open existing file  for read/write
++>> Open existing file for read/append
+
+
+
+turn $string into spaces if occurs in line
+
+
+
+
+
+OPEN(F
+$len = length($string);
+$spaces = " " x $len;
+
+
+while(<F>){
+	if($offset = index($_,$string) != -1){
+		substr($_, $offset, $len) = $spaces;
+		seek(F, -lentgh($_), 1);
+		print F;
+		seek(F, 0, 1); #if you swtich from read to write, or write to read, you must seek/tell
+		# seek(FILEHANDLE, OFFSET, 0..2)
+		#0 is from the beginning of file
+		#1 is from current position
+		#2 is from end of file
+	} 
+}

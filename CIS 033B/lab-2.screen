@@ -1,0 +1,21 @@
+John Towler
+CIS 033B
+Winter 2011
+
+LAB 2.1
+=======
+
+Aether:CIS 033B fushi$ ./lab-2.1.pl lab-2.1.in
+825
+905
+847.5
+Aether:CIS 033B fushi$ 
+
+
+
+
+LAB 1.2
+=======
+
+Aether:CIS 033B fushi$ ./lab-2.2.pl lab-2.2.in lab-2.2.out 12 2
+Aether:CIS 033B fushi$ 

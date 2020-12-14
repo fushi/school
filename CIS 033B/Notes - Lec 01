@@ -1,0 +1,29 @@
+Cover course outline.
+
+Objects in perl are only references
+
+Tied lists in DB_File
+
+Grab DB file to put on Aether
+
+getopts module
+
+Remember that code form is just as important as function.
+
+6 labs
+
+Class is MW, 1800-1930
+
+Email for homework for emergencies must be pure ascii
+
+Homework must include input/output/code
+
+
+////////////
+
+Hash Slice
+
+$hits{sun} = 5
+$hits{sat} = 2
+
+@hits{sun, mon, tue, wed, thu, fri, sat} = (10,30,5,7,6,5,3);

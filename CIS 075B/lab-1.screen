@@ -1,0 +1,24 @@
+
+Enter username to delete: _ftp
+Enter username to delete: root
+Enter username to delete: foo
+Username 'foo' not found!
+Enter username to delete: exit
+Exiting without saving!
+Program ended with exit code: 0
+
+##################################
+
+Enter username to delete: 
+
+Current progress saved to ./passwd.tmp
+Program ended with exit code: 14
+
+###################################
+
+Enter username to delete: _ftp
+Enter username to delete: _http
+Username '_http' not found!
+Enter username to delete: root
+Enter username to delete: quit
+Program ended with exit code: 0

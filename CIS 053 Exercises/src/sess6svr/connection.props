@@ -1,0 +1,7 @@
+url=jdbc:mysql://localhost/test
+driver=com.mysql.jdbc.Driver
+login=dbuser1
+password=welcome
+hostname=rebekah
+port=1099
+reg_url=//rebekah/RMIServer

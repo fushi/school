@@ -1,0 +1,20 @@
+Matrices-
+
+2 Matrices m1, m2, same number of rows, different num of columns.
+
+Make a 3rd matrix that glues the two matrices together.
+
+int **GlueRows(int **m1, int **m2, int rows, int cols1, int cols2){
+
+	int **m3;
+	
+	for(int i = 0; i < rows; i++){
+		m3 = (int**) Malloc (sizeof (int*) * rows);
+		m3[i] = (int*) Malloc (sizeof(int) * (cols1 + cols2));
+		
+		memcpy(m3[i], m1[i], sizeof(int) * cols1);
+		memcpy(m3[i]+ cols1, m2[i], (sizeof(int) * cols2));
+	}
+	
+	returning **m3;
+}

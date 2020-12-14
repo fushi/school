@@ -1,0 +1,6 @@
+If the format descriptor is too small, it's ignored.
+
+if (memcmp(a, b, 10 * sizeof(int)) == 0){
+	//this code executes if the first 10 elements of a and b are irdentical.
+	//memcmp will return positive if the first array is somehow larger, and negative if the second one is.
+}

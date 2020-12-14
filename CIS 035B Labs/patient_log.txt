@@ -1,0 +1,75 @@
+
+Flash Gordon Mon Aug 02 13:35:00 PDT 2004
+Remarks:
+Check-up date is longer than six months.
+Patient needs another checkup.
+
+Robin Hood Sat Dec 25 09:22:00 PST 2004
+Remarks:
+Patient needs smallpox vaccination.
+
+Super Girl Sat Aug 20 23:01:00 PDT 2011
+Remarks:
+Invalid date: Check-up date is in the future.
+
+Flash Gordon Mon Aug 02 13:35:00 PDT 2004
+Remarks:
+Check-up date is longer than six months.
+Patient needs another checkup.
+
+Robin Hood Sat Dec 25 09:22:00 PST 2004
+Remarks:
+Patient needs smallpox vaccination.
+
+Super Girl Sat Aug 20 23:01:00 PDT 2011
+Remarks:
+Invalid date: Check-up date is in the future.
+
+Flash Gordon Mon Aug 02 13:35:00 PDT 2004
+Remarks:
+Check-up date is longer than six months.
+Patient needs another checkup.
+
+Robin Hood Sat Dec 25 09:22:00 PST 2004
+Remarks:
+Patient needs smallpox vaccination.
+
+Super Girl Sat Aug 20 23:01:00 PDT 2011
+Remarks:
+Invalid date: Check-up date is in the future.
+
+Flash Gordon Mon Aug 02 13:35:00 PDT 2004
+Remarks:
+Check-up date is longer than six months.
+Patient needs another checkup.
+
+Wonder Woman Fri Feb 12 10:15:00 PST 2010
+Remarks:
+Check-up date is longer than six months.
+Patient needs another checkup.
+
+Robin Hood Sat Dec 25 09:22:00 PST 2004
+Remarks:
+Patient needs smallpox vaccination.
+
+Super Girl Sat Aug 20 23:01:00 PDT 2011
+Remarks:
+Invalid date: Check-up date is in the future.
+
+Flash Gordon Mon Aug 02 13:35:00 PDT 2004
+Remarks:
+Check-up date is longer than six months.
+Patient needs another checkup.
+
+Wonder Woman Fri Feb 12 10:15:00 PST 2010
+Remarks:
+Check-up date is longer than six months.
+Patient needs another checkup.
+
+Robin Hood Sat Dec 25 09:22:00 PST 2004
+Remarks:
+Patient needs smallpox vaccination.
+
+Super Girl Sat Aug 20 23:01:00 PDT 2011
+Remarks:
+Invalid date: Check-up date is in the future.

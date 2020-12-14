@@ -1,0 +1,13 @@
+You have a file with lines which look like this:
+
+Wolf Wpider:acgttagcgctacgatttccgac
+
+On each line there is an animal name followed by a colon then a
+sequence of letters which stand for DNA nucleotides. Write a
+script which will take the following command line arguments: an
+input filename, an output filename, a positive integer, and a
+letter which must be a 't', 'c', 'a', or 'g'. Your script will
+output all lines from the input file which contain the letter
+in the nucleotide string at least as many times as indicated
+by the integer command line argument. Your answer MUST NOT
+CONTAIN A LOOP.

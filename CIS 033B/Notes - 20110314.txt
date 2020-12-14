@@ -1,0 +1,9 @@
+#Hashing to Disk
+Pg 70 Storage of Records
+Pg 71 Retrieval of Records
+
+#Binary Array Search
+Pg 80
+
+#Binary Tree Search
+Pg 77-78

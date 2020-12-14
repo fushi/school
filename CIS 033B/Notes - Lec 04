@@ -1,0 +1,27 @@
+IN CLASS
+
+sub square{
+	$rlol = shift @_;
+	
+	$rows = @$rlol;
+	
+	return ($rows == (grep{$rows == @$_} @$rlol));
+	else return false;
+	
+	//return (grep {scalar(@$_) == @$rlol} @$rlol) == @$rlol;	
+}
+
+
+sub getHighestVal{
+
+	$rHoL = shift @_;
+	
+	foreach(keys %$rHoL){
+		$Hol->{$_} = (sort{$b <=> $a} $Hol->{$_})[0] 
+	}
+}
+
+
+$rlolol  sort in descending numbers of elements in each;
+
+@$rLoMatrix = sort{map{@$_}@$b <=> map{@$_}@$a} @$rLoMatrix;

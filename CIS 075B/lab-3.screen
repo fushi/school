@@ -1,0 +1,11 @@
+Enter a username ('9' to quit): fushi
+fushi    console  May 19 15:21 
+fushi    ttys000  May 27 17:48 
+fushi    ttys001  May 28 16:40 
+fushi    ttys002  May 28 16:42 
+fushi    ttys003  May 31 12:00 
+fushi    ttys006  May 28 22:51 
+Enter a username ('9' to quit): foo
+User not found!
+Enter a username ('9' to quit): 9
+vp0101ea-dhcp53:~ fushi$ 

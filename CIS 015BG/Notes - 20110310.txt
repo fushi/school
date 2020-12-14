@@ -1,0 +1,14 @@
+static <function declaration>
+// Static makes a function have file scope
+// Without static, a function has program scope
+
+static int i = 0;
+//Static values live between calls of a function
+//Static variables are auto-initialized, and if you choose to initialize yourself, it's done
+//the first time only.
+//
+
+
+union data structure
+//Any members in the union share the same memory space
+//Size of union decided by largest member 

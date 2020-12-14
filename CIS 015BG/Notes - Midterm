@@ -1,0 +1,130 @@
+Short Answer:
+1: Strings and numeric arrays
+2: Array of pointer to char
+
+Coding:
+3: Matrices
+4: Array of pointer to char
+
+
+
+
+
+EXERCISES
+======
+
+
+char s1[80] = "ferry building";
+char s2[80] = "nitrous oxide";
+
+strcpy(s1+4, s2 + 4);
+puts(s1) ===== "ferrous oxide"
+
+----------
+
+char s1[80] = "drunk drivers";
+char s2[80];
+memret(s2, 0, 80);
+s1[5] = '\0';
+*s1 = 't';
+printf("%s %s", s1+6, s1); = "drivers trunk"
+
+----------
+
+int a[3][5] = {{2, 4, 6}, {7}, {9,1,8,3}}
+*p = &a[1][4];
+printf("%d", p - &a[0][2]) == 7, this is value of the difference of addresses
+
+------------
+
+char s1[80] = "carnival tent";
+char s2[80] = " porous animal tooth";
+s1[6] = '\0';
+strncat(s1, s2+1, 12);
+puts(s1); = "carnivorous animal"
+
+-----------------
+
+Make a matrix that only contains identical rows from each matrix
+
+int **makeMatrixOutOfIdenticalRows(int **n1, int **n2, int rows, int cols){
+
+
+	int **output ;
+	int **mover;
+	
+	output = (int**) Malloc((rows+1) * sizeof(int*)); //+1 is for null pointer at end!
+	mover = output;
+
+
+	for(int i = 0, i < rows, i++){
+
+		if(memcmp(n1[i], n2[i], cols*sizeof(int)) == 0){
+			*mover = (int*) Malloc(cols * sizeof(int));
+			
+			memcpy(*mover, n1[i], cols * sizeof(int));
+					
+			mover++;
+		}
+	}
+	*mover = NULL;
+	output = (int**) Realloc(output, (mover-result + 1) * sizeof(int*));
+	return output
+}
+
+--------------------------
+
+char **strs; //null terminated
+int *sizes; //same number of ints as there are strings
+
+take the last n most will be given to a new char**
+
+
+char **copyRightmostCharsFromStrs(char **strs, int *sizes){
+
+
+	char **iMover, **output, **oMover;
+	int *sMover;
+	
+	for(iMover = strs; *iMover; iMover++);
+	oMover = output = (char**) Malloc((iMover - strs+1)sizeof(char*	));
+	
+	for (iMover = strs, sMover = sizes; *iMover; iMover++, oMover++, sMover++){
+		*oMover = (char*) Malloc((*sMover + 1));	
+		strcpy(*oMover, *iMover + strlen(*iMover) - *sMover);
+	}
+	*oMover = NULL;
+	return output;
+}
+
+--------------------------------------
+
+char **strs;
+
+catalog\0
+mollify\0
+subcutaneous\0
+filter\0     //q points here
+
+printf("%s", strchr(q[-1], 'u') + 1) == s //last s in subcutaneous
+printf("%c", *(*(strs+1)+4)); == i
+printf("%d", strlen(strchr(strs[2]+2, 'u')));
+printf("%c", *(*(q+1)+2); == k
+printf("%c", (*(*(strs+1)+2)
+
+
+print out strings.h man pages
+
+
+
+
+
+
+
+
+
+
+
+
+
+

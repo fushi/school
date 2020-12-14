@@ -1,0 +1,62 @@
+[Session started at 2011-03-03 15:11:18 -0800.]
+GNU gdb 6.3.50-20050815 (Apple version gdb-1510) (Wed Sep 22 02:45:02 UTC 2010)
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin".tty /dev/ttys001
+Loading program into debugger…
+Program loaded.
+run
+[Switching to process 15005]
+Running…
+Enter a State Abbreviation to search for: CA
+
+Name                 Social          Age   City                 State               
+Wilson, Brian        100-20-3000     25    San Francisco        CA                  
+Marley, Bob          121-56-7890     30    San Jose             CA                  
+
+Enter a State Abbreviation to search for: NC
+
+Name                 Social          Age   City                 State               
+Jones, Ed            123-45-6789     28    Willow Hill          NC                  
+
+Enter a State Abbreviation to search for: VT
+
+Name                 Social          Age   City                 State               
+No Records Found for VT
+
+Enter a State Abbreviation to search for: iL
+
+Name                 Social          Age   City                 State               
+Obama, Barrack       34-345-9876     40    Chicago              IL                  
+
+Enter a State Abbreviation to search for: Ks
+
+Name                 Social          Age   City                 State               
+Doe, John            98-765-4321     35    Anytown              KS                  
+
+Enter a State Abbreviation to search for: quit
+
+Debugger stopped.
+Program exited with status value:0.
+
+
+lab-5.1.in
+==========
+Jones, Ed:123-45-6789:28:Willow Hill:NC
+Marley, Bob:121-56-7890:30:San Jose:CA
+Wilson, Brian:100-20-3000:25:San Francisco:CA
+Obama, Barrack:34-345-9876:40:Chicago:IL
+Doe, John:98-765-4321:35:Anytown:KS
+Brady, Peter:45-735-2085:99:Podunk:NV
+
+lab-5.1.out
+===========
+Wilson, Brian:100-20-3000:25:San Francisco:CA
+Marley, Bob:121-56-7890:30:San Jose:CA
+Obama, Barrack:34-345-9876:40:Chicago:IL
+Doe, John:98-765-4321:35:Anytown:KS
+Jones, Ed:123-45-6789:28:Willow Hill:NC
+Brady, Peter:45-735-2085:99:Podunk:NV

@@ -1,0 +1,11 @@
+Note to self: Pay attention to the requirements, and remember to close files!
+
+in functions, you can get away without using a 'mover' pointer, if you don't
+need a second pointer in a for loop for some reason, you can use use the array
+pointer, and move that.
+
+
+Don't put functions into declaration area, and put whitespace between
+declaration areas and executable.
+
+Indentation is important (already doing this).

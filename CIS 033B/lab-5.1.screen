@@ -1,0 +1,45 @@
+John Towler
+CIS 033B
+Winter 2011
+
+LAB 5.1
+=======
+
+Aether:CIS 033B fushi$ ./lab-5.1.pl -a lab-5.1.in.add.1
+Will not add duplicate record for NORTH CAROLINA, RALEIGH!
+Aether:CIS 033B fushi$ ./lab-5.1.pl -s "aRiZoNa"
+City            Precip.    Avg High   Avg Low   
+----            -------    --------   -------   
+FLAGSTAFF       14.2       66.4       30.5      
+PHOENIX         7.1        86.4       64.2      
+TUCSON          11.1       80.4       55.2      
+Aether:CIS 033B fushi$ ./lab-5.1.pl -a lab-5.1.in.add.2
+Will not add duplicate record for WYOMING, CASPER!
+Aether:CIS 033B fushi$ ./lab-5.1.pl -l
+State                City            Precip.    Avg High   Avg Low   
+-----                ----            -------    --------   -------   
+ARIZONA              FLAGSTAFF       14.2       66.4       30.5      
+ARIZONA              PHOENIX         7.1        86.4       64.2      
+ARIZONA              TUCSON          11.1       80.4       55.2      
+NEW MEXICO           CARLSBAD        9.7        70.2       44.3      
+NEW YORK             BUFFALO         40.2       57.3       28.2      
+NEW YORK             NEW YORK        41.4       66.4       50.0      
+NORTH CAROLINA       ASHVILLE        35.4       57.3       34.2      
+NORTH CAROLINA       RALEIGH         43.3       60.4       48.5      
+PENNSYLVANIA         PHILADELPHIA    39.6       65.4       46.4      
+WYOMING              CASPER          15.2       55.2       22.4      
+Aether:CIS 033B fushi$ ./lab-5.1.pl -u lab-5.1.in.update
+Will not update record for NEW MEXICO, ALBUQUERQUE: Not Found!
+Aether:CIS 033B fushi$ ./lab-5.1.pl -d lab-5.1.in.delete 
+Aether:CIS 033B fushi$ ./lab-5.1.pl -l
+State                City            Precip.    Avg High   Avg Low   
+-----                ----            -------    --------   -------   
+ARIZONA              PHOENIX         7.4        88.5       65.2      
+ARIZONA              TUCSON          11.1       80.4       55.2      
+NEW MEXICO           CARLSBAD        9.7        70.2       44.3      
+NEW YORK             NEW YORK        41.4       66.4       50.0      
+NORTH CAROLINA       ASHVILLE        35.4       57.3       34.2      
+NORTH CAROLINA       RALEIGH         43.3       60.4       48.5      
+PENNSYLVANIA         PHILADELPHIA    39.6       65.4       46.4      
+WYOMING              CASPER          15.2       55.2       22.4      
+Aether:CIS 033B fushi$ 

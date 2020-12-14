@@ -1,0 +1,145 @@
+Multiple Choice
+
+1 x 3
+	struct with char**
+	
+2: 5 5 pointers all or nothing
+	printf a character or a string requested within an array of pointer to struct
+	
+Coding
+
+3: (22 points) Slow fast about a char** inside a struct, very small amount of code
+
+4: (22 points) Linked list
+
+===================
+struct hello{
+	char  *strs[3];
+};
+	
+struct abc{
+	char * strs[8];
+	struct hello h;
+};
+
+struct abc s[6],  *p = &s;
+
+
+
+2nd string of the hello struct of the 4ths struct
+
+from the rightmost x to the end of string.
+
+
+char *str = s[3].h.strs[1];
+
+printf("%s", strrchr(str, 'x'));
+
+
+====================
+print the piece of the first string in the first s struct, up to but not including a lowercase
+'x'. x will occur, and take 2 statements to do it (No index zero!)
+
+*strchr(*s->strs, 'x') = '\0';
+
+printf("%s", *s->strs);
+
+=====================
+print the first char of the first string in the embedded struct of the first s struct
+
+printf("%c", **s->h.strs);
+
+===============
+
+struct foos{
+	char name[80];
+	char *strs[3];
+}
+struct foo foos[4], *mover = foo+2
+
+[0] = John | hello  bye wombat
+[1] = Robert snavley frodo harcourt
+[2] = Calvin | hero freedom potato
+[3] = Humbert | corpse, cadaver, stiff
+
+putchar(** mover->strs); = h
+
+putchar(*mover[1].strs[2]+3); = v
+putchar(*mover[1].(strs[2]+3)) = f
+
+
+for(i = 0; i < 3; i++){
+	putchar(*mover[1].strs[i]);
+}; = ccs
+
+=================
+
+struct garbage{
+	char name[10];
+	char *strs[3];
+};
+
+stuct garbage *what[3], **mover = what + 1;
+
+
+what[0] Jack | cold hot never
+
+what[1] Henry | anon food cloth
+
+what[2] Thomas | bath arc flood
+
+printf("%c" *((*what)->strs[2]+2)); = v
+
+print the f in food, using the mover pointer
+printf("%c", *(*mover)->strs[1]);
+
+print the a in anon using the what array
+putchar( **what[1]->strs);
+
+=============================
+struct account{
+float bal
+char *accnum;
+struct bankaccount *next;
+}
+
+typedef struct account ACCOUNT;
+dummy trailer starts with a ~;
+
+ACCOUNT* removeNegBals(ACCOUNT *list);
+
+initialize a new list, and move the account from the input list, add it to the output list;
+
+
+ACCOUNT* removeNegBals(ACCOUNT *list){
+
+	ACCOUNT *mover, *temp, *output;
+	
+	output = (ACCOUNT*) Malloc(sizeof(ACCOUNT));
+	output->next = (ACCOUNT*) Malloc(sizeof(ACCOUNT));
+	output->next = (char*) Malloc(2);
+	*output->next->accnum = '~';
+	
+	mover = output;
+	
+	while(strcmp(list->next->acctnum, '~') < 0){
+	
+		if(mover->next->bal < 0){
+			//Unlink
+			temp = list->next;
+			list->next = temp->next;
+			
+			//Insert
+			temp->next = mover->next;
+			mover->next = temp;
+		}
+	
+		list = list->next;
+	}
+	
+	return output;
+}
+
+
+
+
